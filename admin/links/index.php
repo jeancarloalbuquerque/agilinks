@@ -30,28 +30,28 @@
     <div class="ui text container">
 
         <h1 class="ui header">
-            Meus Links
+            Gerenciar Meus Links
         </h1>
 
-        <div class="ui divided relaxed link items">
+        <div class="ui divided relaxed items">
             <?php                 
                 foreach ($links as $link) {
                     echo 
                     "<div href='#' class='item'>
                         <div class='middle aligned content'>
-                            <a href='". $link['url'] ."' class='header'><i class='linkify icon'></i>". $link['title']. "</a>
+                            <a href='". $link['url'] ."' class='header'><i class='linkify icon'></i>". $link['title'] ."</a>
+                            <a href='#' class='ui right floated basic circular icon button'><i class='pencil icon'></i></a>
+
                             <div class='description'>
                                 <p>". $link['description'] ."</p>
                             </div>
                             
                             <div class='extra'>";
-
                                 $link_tags = (array) array_rand($tags);
-                                
+
                                 foreach ($link_tags as $tag) {
                                     echo "<span class='ui label'>$tags[$tag]</span>";
                                 }
-                            
                             echo
                             "</div>
                         </div>
@@ -59,7 +59,7 @@
                 }
             ?>
             
-
+            
         </div>
     </div>
 </body>
