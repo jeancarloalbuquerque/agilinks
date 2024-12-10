@@ -1,6 +1,6 @@
 <?php
     require_once '../vendor/autoload.php'; 
-    require_once '../database.php';
+    require_once '../database/connection.php';
 
     $links = $mysqli->query('select * from links');
 ?>
