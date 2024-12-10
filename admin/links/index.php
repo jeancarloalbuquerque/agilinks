@@ -1,6 +1,6 @@
 <?php
-    require_once '../vendor/autoload.php'; 
-    require_once '../database/connection.php';
+    require_once '../../vendor/autoload.php'; 
+    require_once '../../database/connection.php';
 
     $links = $mysqli->query('select * from links');
 ?>
@@ -18,7 +18,7 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include_once '../resources/views/layouts/navigation.php' ?>
+    <?php include_once '../../resources/views/layouts/navigation/auth.php' ?>
 
     <div class="ui text container">
         <div class="ui divided link items">
