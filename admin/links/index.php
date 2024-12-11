@@ -27,40 +27,61 @@
 <body>
     <?php include_once '../../resources/views/layouts/navigation/auth.php' ?>
 
-    <div class="ui text container">
+    <div class="ui container">
 
         <h1 class="ui header">
             Gerenciar Meus Links
         </h1>
 
-        <div class="ui divided relaxed items">
-            <?php                 
-                foreach ($links as $link) {
-                    echo 
-                    "<div href='#' class='item'>
-                        <div class='middle aligned content'>
-                            <a href='". $link['url'] ."' class='header'><i class='linkify icon'></i>". $link['title'] ."</a>
-                            <a href='#' class='ui right floated basic circular icon button'><i class='pencil icon'></i></a>
+        <table class="ui table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Tags</th>
+                    <th>Descrição</th>
+                    <th></th>
+                </tr>
+            </thead>
 
-                            <div class='description'>
-                                <p>". $link['description'] ."</p>
-                            </div>
+            <tbody>
+                <?php
+                    foreach ($links as $link) {
+                        $id = $link['id'];
+                        $title = $link['title'];
+                        $description = $link['description'];
+                        $url = $link['url'];
+                        $link_tags = (array) array_rand($tags);
+
+
+                        echo
+                        "<tr>
+                            <td>$id</td>
+                            <td>$title</td>
                             
-                            <div class='extra'>";
-                                $link_tags = (array) array_rand($tags);
-
+                            <td>";
                                 foreach ($link_tags as $tag) {
                                     echo "<span class='ui label'>$tags[$tag]</span>";
                                 }
                             echo
-                            "</div>
-                        </div>
-                    </div>";
-                }
-            ?>
-            
-            
-        </div>
+                            "</td>
+                            <td>$description</td>
+                            <td>
+                                <div class='ui icon buttons'>
+                                    <a href='' class='ui basic tiny button'>
+                                        <i class='blue pencil icon'></i>
+                                    </a>
+                                    <a href='' class='ui basic tiny button'>
+                                        <i class='red trash icon'></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
+
     </div>
 </body>
 </html>
