@@ -69,7 +69,7 @@
                             <td>$description</td>
                             <td>
                                 <div class='ui icon buttons'>
-                                    <a href='' class='ui basic tiny button'>
+                                    <a href='./edit.php?id=$id' class='ui basic tiny button'>
                                         <i class='blue pencil icon'></i>
                                     </a>
                                     <a href='' class='ui basic tiny button'>
