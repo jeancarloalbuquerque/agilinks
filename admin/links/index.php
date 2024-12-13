@@ -68,11 +68,11 @@
                             "</td>
                             <td>$description</td>
                             <td>
-                                <div class='ui icon buttons'>
+                                <div class='ui icon compact buttons'>
                                     <a href='./edit.php?id=$id' class='ui basic tiny button'>
                                         <i class='blue pencil icon'></i>
                                     </a>
-                                    <a href='' class='ui basic tiny button'>
+                                    <a href='./delete.php?id=$id' onclick=\"return confirm('Deseja deletar esse recuro?')\" class='ui basic tiny button'>
                                         <i class='red trash icon'></i>
                                     </a>
                                 </div>
