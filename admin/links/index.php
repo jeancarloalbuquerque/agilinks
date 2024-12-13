@@ -30,6 +30,7 @@
     <div class="ui container">
 
         <h1 class="ui header">
+            <a href="./create.php" class="ui right floated primary button">Novo</a>
             Gerenciar Meus Links
         </h1>
 
