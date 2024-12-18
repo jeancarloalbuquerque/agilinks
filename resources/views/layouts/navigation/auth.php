@@ -23,10 +23,10 @@
 
             <div class="right floated menu">
                 <div class="item">
-                    <button class="ui negative button">
+                    <a href="/" class="ui negative button">
                         <i class="sign out icon"></i>
                         Logout
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

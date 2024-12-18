@@ -1,7 +1,7 @@
 <header style="margin-bottom: 5rem;">
     <div class="ui container">
         <div class="ui secondary menu">
-            <a href="/agilinks" class="header item">
+            <a href="/" class="header item">
                 <i class="sitemap icon"></i>
                 Agilinks
 
@@ -20,11 +20,11 @@
             </a>
 
             <div class="right floated menu">
-                <div href="#" class="item">
-                    <a class="ui primary button">Login</a>
+                <div class="item">
+                    <a href="./admin" class="ui primary button">Login</a>
                 </div>
-                <div href="#" class="item">
-                    <a href="" class="ui button">Registrar</a>
+                <div class="item">
+                    <a href="./admin" class="ui button">Registrar</a>
                 </div>
             </div>
         </div>
