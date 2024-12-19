@@ -13,11 +13,11 @@
             </a>
             <a href="/admin/links" class="item">
                 <i class="linkify icon"></i>
-                Meus Links
+                Links
             </a>
-            <a href="#" class="item">
-                <i class="tags icon"></i>
-                Minhas Tags
+            <a href="/admin/collections" class="item">
+                <i class="bookmark icon"></i>
+                Coleções
             </a>
             
 
