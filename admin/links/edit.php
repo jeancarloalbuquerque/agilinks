@@ -8,7 +8,7 @@
         $link = $mysqli->query("SELECT * FROM links WHERE id = '$id'")->fetch_assoc();
     }
 
-    if (! isset($link)) {
+    if (!isset($link)) {
         header('Location: ./index.php');
     }
 
@@ -38,7 +38,9 @@
             Criar novo Link
         </h1>
 
-        <form action="./create.php" class="ui form" method="post">
+        <form action="./update.php" class="ui form" method="post">
+            <input type="hidden" name="id" value="<?= $id ?>">
+
             <div class="field">
                 <label for="title">Título</label>
                 <input type="text" name="title" id="title" value="<?= $title ?>">
