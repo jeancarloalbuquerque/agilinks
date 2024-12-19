@@ -1,22 +1,5 @@
 <?php
-    include_once '../../vendor/autoload.php';
-    include_once '../../database/connection.php';
-
-    if (!empty($_POST)) {
-        $title = $_POST['title'];
-        $description = $_POST['description'];
-        $url = $_POST['url'];
-
-        $query = "INSERT INTO links (title, description, url)
-        VALUES ('$title', '$description', '$url')";
-
-        if ($mysqli->query($query)) {
-            header('Location: ./');
-        } else {
-            header('Location: ./create.php');
-        }
-
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +22,7 @@
             Criar novo Link
         </h1>
 
-        <form action="./create.php" class="ui form" method="post">
+        <form action="./store.php" class="ui form" method="post">
             <div class="field">
                 <label for="title">Título</label>
                 <input type="text" name="title" id="title">

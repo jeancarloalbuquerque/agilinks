@@ -31,7 +31,7 @@
     <div class="ui text container">
         <h1 class="ui header">Criar nova Coleção</h1>
 
-        <form action="./create.php" method="post" class="ui form">
+        <form action="./store.php" method="post" class="ui form">
             <div class="field">
                 <label for="name">Nome</label>
                 <input type="text" name="name" id="name">
