@@ -1,5 +1,8 @@
 <?php
-    
+    include_once '../../vendor/autoload.php';
+    include_once '../../database/connection.php';
+
+    $collections = $mysqli->query('SELECT * FROM collections ORDER BY name')
 ?>
 
 <!DOCTYPE html>
@@ -38,9 +41,30 @@
                 <input type="url" name="url" id="url">
             </div>
 
+            <div class="field">
+                <label for="collection">Coleção</label>
+                <div class="ui clearable selection dropdown">
+                    <input type="hidden" name="collection">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Coleção</div>
+                    <div class="menu">
+                        <?php foreach ($collections as $collection) { 
+                            $id = $collection['id'];
+                            $name = $collection['name'];
+                        ?>
+                            <div class="item" data-value="<?= $id ?>"><?= $name ?></div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+
             <button type="submit" class="ui primary button">Salvar</button>
         </form>
     </div>
+
+    <script>
+        $('.dropdown').dropdown({clearable: true});
+    </script>
 
 </body>
 </html>
