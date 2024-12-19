@@ -46,45 +46,46 @@
             </thead>
 
             <tbody>
-                <?php
-                    foreach ($links as $link) {
-                        $id = $link['id'];
-                        $title = $link['title'];
-                        $description = $link['description'];
-                        $url = $link['url'];
-                        $link_tags = (array) array_rand($tags);
-
-
-                        echo
-                        "<tr>
-                            <td>$id</td>
-                            <td>$title</td>
-                            
-                            <td>";
-                                foreach ($link_tags as $tag) {
-                                    echo "<span class='ui label'>$tags[$tag]</span>";
-                                }
-                            echo
-                            "</td>
-                            <td>$description</td>
-                            <td>
-                                <div class='ui icon compact buttons'>
-                                    <a href='./edit.php?id=$id' class='ui basic tiny button'>
-                                        <i class='blue pencil icon'></i>
-                                    </a>
-
-                                    <form action='./delete.php' method='post' id='delete-form-$id' style='display:none'>
-                                        <input type='hidden' name='id' value='$id'>
-                                    </form>
-
-                                    <button onclick=\"if (confirm('Deseja realmente deletar esse recurso?')) { document.getElementById('delete-form-$id').submit() }\" class='ui basic tiny button'>
-                                        <i class='red trash icon'></i>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>";
-                    }
+                <?php foreach ($links as $link) {
+                    $id = $link['id'];
+                    $title = $link['title'];
+                    $description = $link['description'];
+                    $url = $link['url'];
+                    $link_tags = (array) array_rand($tags);
                 ?>
+                    <tr>
+                        <td><?= $id ?></td>
+                        <td><?= $title ?></td>
+                        
+                        <td>
+                            <?php foreach ($link_tags as $tag) { ?>
+                                <span class='ui label'><?= $tags[$tag] ?></span>
+                            <?php } ?>
+                        </td>
+                        <td><?= $description ?></td>
+                        <td>
+                            <div class='ui icon compact buttons'>
+                                <a href='./edit.php?id=<?= $id ?>' class='ui basic tiny button'>
+                                    <i class='blue pencil icon'></i>
+                                </a>
+
+                                <form action='./delete.php' method='post' id='delete-form-<?= $id ?>' style='display:none'>
+                                    <input type='hidden' name='id' value='<?= $id ?>'>
+                                </form>
+
+                                <button onclick="
+                                    if (confirm('Deseja realmente deletar esse recurso?')) {
+                                        document.getElementById('delete-form-<?= $id ?>').submit()
+                                    }" 
+                                    class='ui basic tiny button'
+                                >
+                                    <i class='red trash icon'></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                <?php } ?>
             </tbody>
         </table>
 
