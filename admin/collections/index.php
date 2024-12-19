@@ -2,7 +2,7 @@
     require_once '../../vendor/autoload.php'; 
     require_once '../../database/connection.php';
 
-    $collections = $mysqli->query("SELECT * FROM collections");
+    $collections = $mysqli->query("SELECT * FROM collections ORDER BY name");
 
 ?>
 

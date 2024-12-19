@@ -2,14 +2,8 @@
     require_once '../../vendor/autoload.php'; 
     require_once '../../database/connection.php';
 
-    $links = $mysqli->query('select * from links');
+    $links = $mysqli->query('SELECT * FROM links');
     
-    $tags = [
-        'Redes Socias',
-        'Portifólio',
-        'Produtos',
-        'Conteúdos',
-    ];
 ?>
 
 <!DOCTYPE html>
@@ -51,17 +45,13 @@
                     $title = $link['title'];
                     $description = $link['description'];
                     $url = $link['url'];
-                    $link_tags = (array) array_rand($tags);
+                    $collection = $link['collection_id'];
                 ?>
                     <tr>
                         <td><?= $id ?></td>
                         <td><?= $title ?></td>
                         
-                        <td>
-                            <?php foreach ($link_tags as $tag) { ?>
-                                <span class='ui label'><?= $tags[$tag] ?></span>
-                            <?php } ?>
-                        </td>
+                        <td><span class='ui label'><?= $collection ?></span></td>
                         <td><?= $description ?></td>
                         <td>
                             <div class='ui icon compact buttons'>
