@@ -46,7 +46,7 @@
                         <td><?= $name ?></td>
                         <td>
                             <div class="ui compact icon buttons">
-                                <a href="./edit?id=<?= $id ?>" class="ui button">
+                                <a href="./edit.php?id=<?= $id ?>" class="ui button">
                                     <i class="pencil icon"></i>
                                 </a>
 
@@ -54,7 +54,12 @@
                                     <input type="hidden" name="id" value="<?= $id ?>">
                                 </form>
 
-                                <button class="ui button">
+                                <button class="ui button" 
+                                    onclick="
+                                        if (confirm('Deseja realmente deletar esse recurso?')) {
+                                            document.getElementById('delete-form-<?= $id ?>').submit()
+                                        }"
+                                >
                                     <i class="trash icon"></i>
                                 </button>
 
