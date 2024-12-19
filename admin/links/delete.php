@@ -2,8 +2,8 @@
     require_once '../../vendor/autoload.php'; 
     require_once '../../database/connection.php';
 
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
+    if (isset($_POST['id'])) {
+        $id = $_POST['id'];
 
         $mysqli->query("DELETE FROM links WHERE id = '$id'");
     }

@@ -72,9 +72,14 @@
                                     <a href='./edit.php?id=$id' class='ui basic tiny button'>
                                         <i class='blue pencil icon'></i>
                                     </a>
-                                    <a href='./delete.php?id=$id' onclick=\"return confirm('Deseja deletar esse recuro?')\" class='ui basic tiny button'>
+
+                                    <form action='./delete.php' method='post' id='delete-form-$id' style='display:none'>
+                                        <input type='hidden' name='id' value='$id'>
+                                    </form>
+
+                                    <button onclick=\"if (confirm('Deseja realmente deletar esse recurso?')) { document.getElementById('delete-form-$id').submit() }\" class='ui basic tiny button'>
                                         <i class='red trash icon'></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </td>
                         </tr>";
@@ -84,5 +89,6 @@
         </table>
 
     </div>
+    
 </body>
 </html>
