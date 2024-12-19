@@ -6,16 +6,16 @@
         $id = $_GET['id'];
 
         $link = $mysqli->query("SELECT * FROM links WHERE id = '$id'")->fetch_assoc();
+
+        $id = $link['id'];
+        $title = $link['title'];
+        $description = $link['description'];
+        $url = $link['url'];
     }
 
     if (! isset($link)) {
         header('Location: ./index.php');
     }
-
-    $id = $link['id'];
-    $title = $link['title'];
-    $description = $link['description'];
-    $url = $link['url'];
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +35,12 @@
 
     <div class="ui text container">
         <h1 class="ui header">
-            Criar novo Link
+            Editar Link
         </h1>
 
-        <form action="./create.php" class="ui form" method="post">
+        <form action="./update.php" class="ui form" method="post">
+            <input type="hidden" name="id" value="<?= $id?>">
+
             <div class="field">
                 <label for="title">Título</label>
                 <input type="text" name="title" id="title" value="<?= $title ?>">
