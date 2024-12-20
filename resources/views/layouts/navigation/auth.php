@@ -1,4 +1,4 @@
-<header style="margin-bottom: 5rem;">
+<header style="margin-bottom: 8rem;">
     <div class="ui container">
         <div class="ui secondary menu">
             <a href="/" class="header item">
@@ -22,8 +22,8 @@
             
 
             <div class="right floated menu">
-                <div class="item">
-                    <a href="/" class="ui negative button">
+                <div class="fitted item">
+                    <a href="/" class="ui compact negative button">
                         <i class="sign out icon"></i>
                         Logout
                     </a>

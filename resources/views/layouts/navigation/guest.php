@@ -1,4 +1,4 @@
-<header style="margin-bottom: 5rem;">
+<header style="margin-bottom: 8rem;">
     <div class="ui container">
         <div class="ui secondary menu">
             <a href="/" class="header item">
@@ -21,10 +21,10 @@
 
             <div class="right floated menu">
                 <div class="item">
-                    <a href="./admin" class="ui primary button">Login</a>
+                    <a href="./admin" class="ui compact primary button">Login</a>
                 </div>
                 <div class="item">
-                    <a href="./admin" class="ui button">Registrar</a>
+                    <a href="./admin" class="ui compact button">Registrar</a>
                 </div>
             </div>
         </div>

@@ -18,7 +18,7 @@
 
             <div class="ui center aligned basic segment">
                 <h1>Ajude seus seguidores a descobrir tudo que você faz, com apenas um link</h1>
-                <a href="./admin" class="ui primary button">Começar agora</a>
+                <a href="./admin" class="ui primary huge button">Começar agora</a>
             </div>
 
             <div class="ui hidden section divider"></div>

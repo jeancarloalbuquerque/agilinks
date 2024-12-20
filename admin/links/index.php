@@ -3,7 +3,15 @@
     require_once '../../database/connection.php';
 
     $links = $mysqli->query('SELECT * FROM links');
-    
+
+    $related_collections = $mysqli->query(
+        'SELECT * FROM collections WHERE id IN 
+        (SELECT DISTINCT collection_id FROM links WHERE collection_id IS NOT NULL)'
+    )->fetch_all(MYSQLI_ASSOC);
+
+    foreach ($related_collections as $related) {
+        $collections[$related['id']] = $related;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +53,9 @@
                     $title = $link['title'];
                     $description = $link['description'];
                     $url = $link['url'];
-                    $collection = $link['collection_id'];
+
+                    $collection_id = $link['collection_id'];
+                    $collection = $collections[$collection_id]['name'] ?? null;
                 ?>
                     <tr>
                         <td><?= $id ?></td>
