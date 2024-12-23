@@ -20,8 +20,13 @@
                 Coleções
             </a>
             
-
             <div class="right floated menu">
+                <div class="fitted item">
+                    <a href="/users" class="ui basic compact button">
+                        <i class="eye icon"></i>
+                        Visualizar
+                    </a>
+                </div>
                 <div class="fitted item">
                     <a href="/" class="ui compact negative button">
                         <i class="sign out icon"></i>
