@@ -2,16 +2,10 @@
     require_once '../../vendor/autoload.php'; 
     require_once '../../database/connection.php';
 
-    $links = $mysqli->query('SELECT * FROM links');
-
-    $related_collections = $mysqli->query(
-        'SELECT * FROM collections WHERE id IN 
-        (SELECT DISTINCT collection_id FROM links WHERE collection_id IS NOT NULL)'
-    )->fetch_all(MYSQLI_ASSOC);
-
-    foreach ($related_collections as $related) {
-        $collections[$related['id']] = $related;
-    }
+    $links = $mysqli->query(
+        'SELECT links.*, collections.name as collection_name  FROM links 
+        LEFT JOIN collections ON links.collection_id = collections.id'
+    );
 ?>
 
 <!DOCTYPE html>
@@ -41,13 +35,14 @@
                 <tr>
                     <th>Id</th>
                     <th>Título</th>
-                    <th>Tags</th>
+                    <th>Coleção</th>
                     <th>Descrição</th>
                     <th></th>
                 </tr>
             </thead>
 
             <tbody>
+                
                 <?php foreach ($links as $link) {
                     $id = $link['id'];
                     $title = $link['title'];
@@ -55,13 +50,13 @@
                     $url = $link['url'];
 
                     $collection_id = $link['collection_id'];
-                    $collection = $collections[$collection_id]['name'] ?? null;
+                    $collection_name = $link['collection_name'];
                 ?>
                     <tr>
                         <td><?= $id ?></td>
                         <td><?= $title ?></td>
                         
-                        <td><span class='ui label'><?= $collection ?></span></td>
+                        <td><span class='ui basic <?= empty($collection_name) ? 'disabled' : 'primary' ?> label'><?= $collection_name ?? '<em>Nenhum</em>' ?></span></td>
                         <td><?= $description ?></td>
                         <td>
                             <div class='ui icon compact buttons'>
