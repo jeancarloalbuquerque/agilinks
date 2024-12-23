@@ -7,8 +7,9 @@
         $title = $_POST['title'];
         $description = $_POST['description'];
         $url = $_POST['url'];
+        $collection = !empty($_POST['collection']) ? $_POST['collection'] : 'null'; 
 
-        $query = "UPDATE links SET title = '$title', description = '$description', url = '$url' WHERE id = $id";
+        $query = "UPDATE links SET title = '$title', description = '$description', url = '$url', collection_id = $collection WHERE id = $id";
 
         if ($mysqli->query($query)) {
             header('Location: ./index.php');

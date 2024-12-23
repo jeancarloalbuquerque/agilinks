@@ -6,6 +6,7 @@
         $id = $_GET['id'];
 
         $link = $mysqli->query("SELECT * FROM links WHERE id = '$id'")->fetch_assoc();
+        $collections = $mysqli->query("SELECT * FROM collections ORDER BY name");
     }
 
     if (!isset($link)) {
@@ -16,6 +17,7 @@
     $title = $link['title'];
     $description = $link['description'];
     $url = $link['url'];
+    $related_collection_id = $link['collection_id'];
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +58,29 @@
                 <input type="url" name="url" id="url" value="<?= $url ?>">
             </div>
 
+            <div class="field">
+                <label for="collection">Coleção</label>
+                <div class="ui clearable selection dropdown">
+                    <input type="hidden" name="collection" value="<?= $related_collection_id ?>">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Coleção</div>
+                    <div class="menu">
+                        <?php foreach ($collections as $collection) { 
+                            $collection_id = $collection['id'];
+                            $collection_name = $collection['name'];
+                        ?>
+                            <div class="item" data-value="<?= $collection_id ?>"><?= $collection_name ?></div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+
             <button type="submit" class="ui primary button">Salvar</button>
         </form>
     </div>
 
+    <script>
+        $('.dropdown').dropdown({clearable: true});
+    </script>
 </body>
 </html>

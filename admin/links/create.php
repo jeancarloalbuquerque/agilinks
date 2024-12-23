@@ -49,10 +49,10 @@
                     <div class="default text">Coleção</div>
                     <div class="menu">
                         <?php foreach ($collections as $collection) { 
-                            $id = $collection['id'];
-                            $name = $collection['name'];
+                            $collection_id = $collection['id'];
+                            $collection_name = $collection['name'];
                         ?>
-                            <div class="item" data-value="<?= $id ?>"><?= $name ?></div>
+                            <div class="item" data-value="<?= $collection_id ?>"><?= $collection_name ?></div>
                         <?php } ?>
                     </div>
                 </div>
