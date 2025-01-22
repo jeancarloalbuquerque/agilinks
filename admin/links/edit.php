@@ -13,7 +13,7 @@
         $url = $link['url'];
     }
 
-    if (! isset($link)) {
+    if (!isset($link)) {
         header('Location: ./index.php');
     }
 ?>
