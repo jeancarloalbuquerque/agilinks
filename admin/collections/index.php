@@ -2,12 +2,13 @@
     require_once '../../vendor/autoload.php'; 
     require_once '../../database/connection.php';
 
+    session_start();
+
+    $user_id = $_SESSION['user']['id'];
+
     $collections = $mysqli->query(
-        "SELECT collections.*, count(links.collection_id) as links_count 
-        FROM collections 
-        LEFT JOIN links 
-        ON (collections.id = links.collection_id)
-        GROUP by collections.id
+        "SELECT * FROM collections 
+        WHERE collections.user_id = $user_id
         ORDER BY collections.name"
     );
 
@@ -48,12 +49,10 @@
                 <?php foreach ($collections as $collection) {
                     $id = $collection['id'];    
                     $name = $collection['name'];
-                    $links_count = $collection['links_count'];
                 ?>
                     <tr>
                         <td><?= $id ?></td>
                         <td><?= $name ?></td>
-                        <td><?= $links_count ?></td>
                         <td>
                             <div class="ui compact icon buttons">
                                 <a href="./edit.php?id=<?= $id ?>" class="ui basic tiny button">

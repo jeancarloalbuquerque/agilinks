@@ -2,9 +2,14 @@
     require_once '../../vendor/autoload.php'; 
     require_once '../../database/connection.php';
 
+    session_start();
+
+    $user_id = $_SESSION['user']['id'];
+
     $links = $mysqli->query(
-        'SELECT links.*, collections.name as collection_name  FROM links 
-        LEFT JOIN collections ON links.collection_id = collections.id'
+        "SELECT links.*, collections.name as collection_name  FROM links 
+        LEFT JOIN collections ON links.collection_id = collections.id
+        WHERE links.user_id = $user_id"
     );
 ?>
 

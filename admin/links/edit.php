@@ -2,11 +2,15 @@
     require_once '../../vendor/autoload.php'; 
     require_once '../../database/connection.php';
 
+    session_start();
+
+    $user_id = $_SESSION['user']['id'];
+
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
         $link = $mysqli->query("SELECT * FROM links WHERE id = '$id'")->fetch_assoc();
-        $collections = $mysqli->query("SELECT * FROM collections ORDER BY name");
+        $collections = $mysqli->query("SELECT * FROM collections WHERE user_id = $user_id ORDER BY name");
     }
 
     if (!isset($link)) {

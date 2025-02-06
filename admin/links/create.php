@@ -2,7 +2,11 @@
     include_once '../../vendor/autoload.php';
     include_once '../../database/connection.php';
 
-    $collections = $mysqli->query('SELECT * FROM collections ORDER BY name')
+    session_start();
+
+    $user_id = $_SESSION['user']['id'];
+
+    $collections = $mysqli->query("SELECT * FROM collections WHERE user_id = $user_id ORDER BY name")
 ?>
 
 <!DOCTYPE html>
