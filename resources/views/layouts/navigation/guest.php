@@ -21,10 +21,10 @@
 
             <div class="right floated menu">
                 <div class="item">
-                    <a href="./auth/" class="ui compact primary button">Login</a>
+                    <a href="/auth/" class="ui compact primary button">Login</a>
                 </div>
                 <div class="item">
-                    <a href="./admin" class="ui compact button">Registrar</a>
+                    <a href="/auth/register.php" class="ui compact button">Registrar</a>
                 </div>
             </div>
         </div>
