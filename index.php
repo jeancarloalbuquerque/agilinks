@@ -14,7 +14,7 @@
     <?php include_once 'resources/views/layouts/navigation/guest.php' ?>
     
     <main>
-        <div class="ui container">
+        <div class="ui text container">
 
             <div class="ui center aligned basic segment">
                 <h1>Ajude seus seguidores a descobrir tudo que você faz, com apenas um link</h1>
@@ -45,14 +45,12 @@
             <div class="ui section hidden divider"></div>
 
             <div class="ui basic segment">
-                <h2>Você nunca mais vai precisar mudar link da sua Bio</h2>
-                <p>
-                    Em 2024 Agilinks resolveu o maior problema das redes sociais: ter apenas um link na sua bio.
+                <h2>Você nunca mais vai precisar mudar o link da sua Bio!</h2>
+                <p class="ui text">
+                    Em 2024, a Agilinks resolveu o maior problema das redes sociais: ter apenas um link na sua bio.
                 </p>
-                <p>
-                    Agilinks foi o primeiro plataforma de 'link na bio' criada para resolver esse problema
-                </p>
-                <p>
+                <p class="ui text">
+                    A Agilinks foi a primeira plataforma de <span class="ui blue text">link na bio</span> criada para resolver esse problema.
                     Desde então Agilinks se tornou muito mais. Permitindo empresas e criadores a conseguir muito mais das suas redes socias,
                     aumentando seus seguidores e devolvendo o controle de como seus conteúdos são descobertos.
                 </p>
