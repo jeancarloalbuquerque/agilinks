@@ -28,7 +28,7 @@
                     </a>
                 </div>
                 <div class="fitted item">
-                    <a href="/" class="ui compact negative button">
+                    <a href="../../auth/logout.php" class="ui compact negative button">
                         <i class="sign out icon"></i>
                         Logout
                     </a>
