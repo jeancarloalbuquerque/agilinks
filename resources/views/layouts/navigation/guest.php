@@ -21,7 +21,7 @@
 
             <div class="right floated menu">
                 <div class="item">
-                    <a href="./admin" class="ui compact primary button">Login</a>
+                    <a href="./auth/login" class="ui compact primary button">Login</a>
                 </div>
                 <div class="item">
                     <a href="./admin" class="ui compact button">Registrar</a>
