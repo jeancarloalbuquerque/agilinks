@@ -1,3 +1,12 @@
+<?php
+    if (empty(session_id())) {
+        session_start();
+    }
+
+    $user = $_SESSION['user'];
+
+?>
+
 <header style="margin-bottom: 8rem;">
     <div class="ui container">
         <div class="ui secondary menu">
@@ -21,19 +30,48 @@
             </a>
             
             <div class="right floated menu">
-                <div class="fitted item">
-                    <a href="/users" class="ui basic compact button">
-                        <i class="eye icon"></i>
-                        Visualizar
-                    </a>
-                </div>
-                <div class="fitted item">
-                    <a href="../../auth/logout.php" class="ui compact negative button">
-                        <i class="sign out icon"></i>
-                        Logout
-                    </a>
+                <div class="ui dropdown item">
+                    <div class="ui avatar">
+                        <i class="user circle icon"></i>
+                        <span><?= $user['name'] ?></span>
+                    </div>
+
+                    <i class="dropdown icon"></i>
+
+                    <div class="menu">
+                        <div class="header">
+                            <i class="envelope icon"></i>
+                            <span><?= $user['email'] ?></span>
+                        </div>    
+                            
+                        <div class="header">
+                            <i class="linkify icon"></i>
+                            <span><?= $user['username'] ?></span>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <a href="" class="item">
+                            <i class="user circle icon"></i>
+                            Perfil
+                        </a>
+
+                        <a href="/users" class="item">
+                            <i class="eye icon"></i>
+                            Pré visualizar
+                        </a>
+
+                        <a href="/auth/logout.php" class="red item">
+                            <i class="red sign out icon"></i>
+                            <span class="ui red text">Logout</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $('.ui.dropdown').dropdown();
+    </script>
 </header>
