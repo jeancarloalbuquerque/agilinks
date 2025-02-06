@@ -37,11 +37,11 @@
 
     <div class="ui text container">
         <h1 class="ui header">
-            Criar novo Link
+            Editar Link
         </h1>
 
         <form action="./update.php" class="ui form" method="post">
-            <input type="hidden" name="id" value="<?= $id ?>">
+            <input type="hidden" name="id" value="<?= $id?>">
 
             <div class="field">
                 <label for="title">Título</label>
