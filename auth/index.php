@@ -2,6 +2,11 @@
     require_once '../vendor/autoload.php'; 
     require_once '../database/connection.php';
 
+    session_start();
+
+    if (isset($_SESSION['user'])) {
+        return header('Location: ../../admin');
+    }
 ?>
 
 <!DOCTYPE html>
