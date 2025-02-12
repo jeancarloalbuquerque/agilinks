@@ -56,7 +56,7 @@
                             Perfil
                         </a>
 
-                        <a href="/users" class="item">
+                        <a href="/users/?user=<?= $_SESSION['user']['username'] ?>" class="item">
                             <i class="eye icon"></i>
                             Pré visualizar
                         </a>
