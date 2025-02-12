@@ -78,7 +78,7 @@
                         <?php } ?>
                     <?php } ?>
 
-                    <a href="<?= $link['url'] ?>" class="item">
+                    <a href="<?= $link['url'] ?>" class="item" target="_blank">
                         <div class="content">
                             <div class="header"><?= $link['title'] ?></div>
                         </div>
