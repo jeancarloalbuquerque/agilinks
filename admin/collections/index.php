@@ -40,7 +40,6 @@
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
-                    <th>N. Links</th>
                     <th></th>
                 </tr>
             </thead>
@@ -53,7 +52,7 @@
                     <tr>
                         <td><?= $id ?></td>
                         <td><?= $name ?></td>
-                        <td>
+                        <td class="right aligned">
                             <div class="ui compact icon buttons">
                                 <a href="./edit.php?id=<?= $id ?>" class="ui basic tiny button">
                                     <i class="blue pencil icon"></i>

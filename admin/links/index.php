@@ -63,7 +63,7 @@
                         
                         <td><span class='ui basic <?= empty($collection_name) ? 'disabled' : 'primary' ?> label'><?= $collection_name ?? '<em>Nenhum</em>' ?></span></td>
                         <td><?= $description ?></td>
-                        <td>
+                        <td class="right aligned">
                             <div class='ui icon compact buttons'>
                                 <a href='./edit.php?id=<?= $id ?>' class='ui basic tiny button'>
                                     <i class='blue pencil icon'></i>
