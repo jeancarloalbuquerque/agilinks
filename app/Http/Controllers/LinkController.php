@@ -30,13 +30,13 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
             'url' => 'required',
         ]);
 
-        Link::create($request->all());
+        Link::create($validated);
 
         return redirect()->route('links.index');
     }
@@ -52,24 +52,36 @@ class LinkController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Link $link)
     {
-        //
+        return view('links.edit', compact('link'));
+
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Link $link)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'url' => 'required',
+        ]);
+
+        $link->update($validated);
+
+        return redirect()->route('links.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Link $link)
     {
-        //
+        $link->delete();
+
+        return redirect()->route('links.index');
     }
 }
