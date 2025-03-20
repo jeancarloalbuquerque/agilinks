@@ -12,7 +12,7 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $collections = collection::all();
+        $collections = Collection::with(['links'])->get();
 
         return view('collections.index', compact('collections'));
     }

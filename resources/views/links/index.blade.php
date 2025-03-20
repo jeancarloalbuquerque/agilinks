@@ -12,6 +12,7 @@
                 <th>Título</th>
                 <th>Descrição</th>
                 <th>Url</th>
+                <th>Coleção</th>
                 <th></th>
             </tr>
         </thead>
@@ -26,6 +27,9 @@
                         <a href="{{ $link->url }}" target="_blank">
                             {{ $link->url }}
                         </a>
+                    </td>
+                    <td>
+                        <span class="ui label">{{ $link->collection?->name }}</span>
                     </td>
                     <td class="right aligned">
                         <div class="ui compact small icon buttons">

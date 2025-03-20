@@ -10,6 +10,7 @@
             <tr>
                 <th>#</th>
                 <th>Nome</th>
+                <th>N. Links</th>
                 <th></th>
             </tr>
         </thead>
@@ -19,6 +20,7 @@
                 <tr>
                     <td>{{ $collection->id }}</td>
                     <td>{{ $collection->name }}</td>
+                    <td>{{ $collection->links->count() }}</td>
                     <td class="right aligned">
                         <div class="ui compact small icon buttons">
                             <a href="{{ route('collections.edit', $collection) }}" class="ui blue button">

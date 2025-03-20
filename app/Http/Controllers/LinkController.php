@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\Link;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,9 @@ class LinkController extends Controller
      */
     public function create()
     {
-        return view('links.create');
+        $collections = Collection::all();
+        
+        return view('links.create', compact('collections'));
     }
 
     /**
@@ -34,9 +37,13 @@ class LinkController extends Controller
             'title' => 'required',
             'description' => 'required',
             'url' => 'required',
+            'collection_id' => ['integer', 'nullable'],
         ]);
 
-        Link::create($validated);
+        $collection = Collection::findOrFail($request->collection_id);
+        $link = Link::create($validated);
+        
+        $link->collection()->associate($collection)->save();
 
         return redirect()->route('links.index');
     }
@@ -54,9 +61,9 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {
-        return view('links.edit', compact('link'));
+        $collections = Collection::all();
 
-
+        return view('links.edit', compact('link', 'collections'));
     }
 
     /**
@@ -68,9 +75,13 @@ class LinkController extends Controller
             'title' => 'required',
             'description' => 'required',
             'url' => 'required',
+            'collection_id' => ['integer', 'nullable'],
         ]);
 
         $link->update($validated);
+
+        $collection = Collection::findOrFail($request->collection_id);
+        $link->collection()->associate($collection)->save();
 
         return redirect()->route('links.index');
     }
