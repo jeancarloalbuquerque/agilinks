@@ -15,7 +15,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = Link::all();
+        $links = Auth::user()->links;
 
         return view('links.index', compact('links'));
     }
@@ -99,6 +99,8 @@ class LinkController extends Controller
      */
     public function destroy(Link $link)
     {
+        Gate::authorize('delete', $link);
+
         $link->delete();
 
         return redirect()->route('links.index');
