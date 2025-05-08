@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Collection;
 use App\Models\Link;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class LinkController extends Controller
 {
@@ -40,9 +42,11 @@ class LinkController extends Controller
             'collection_id' => ['integer', 'nullable'],
         ]);
 
-        $collection = Collection::findOrFail($request->collection_id);
         $link = Link::create($validated);
-        
+        $link->user()->associate(Auth::user())->save();
+
+
+        $collection = Collection::find($request->collection_id);
         $link->collection()->associate($collection)->save();
 
         return redirect()->route('links.index');
@@ -61,6 +65,8 @@ class LinkController extends Controller
      */
     public function edit(Link $link)
     {
+        Gate::authorize('update', $link);
+
         $collections = Collection::all();
 
         return view('links.edit', compact('link', 'collections'));
@@ -71,6 +77,8 @@ class LinkController extends Controller
      */
     public function update(Request $request, Link $link)
     {
+        Gate::authorize('update', $link);
+
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',

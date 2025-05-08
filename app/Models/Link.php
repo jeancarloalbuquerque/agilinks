@@ -16,6 +16,11 @@ class Link extends Model
         'url',
     ];
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function collection(): BelongsTo
     {
         return $this->belongsTo(Collection::class);
