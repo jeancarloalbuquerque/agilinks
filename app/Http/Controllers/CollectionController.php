@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class CollectionController extends Controller
 {
@@ -12,7 +14,8 @@ class CollectionController extends Controller
      */
     public function index()
     {
-        $collections = Collection::with(['links'])->get();
+        $collections = Auth::user()->collections()->with(['links'])->get();
+        // $collections = Collection::with(['links'])->get();
 
         return view('collections.index', compact('collections'));
     }
@@ -34,7 +37,8 @@ class CollectionController extends Controller
             'name' => 'required',
         ]);
 
-        collection::create($validated);
+        $collection = Collection::create($validated);
+        $collection->user()->associate(Auth::user())->save();
 
         return redirect()->route('collections.index');
     }
@@ -52,9 +56,9 @@ class CollectionController extends Controller
      */
     public function edit(Collection $collection)
     {
+        Gate::authorize('update', $collection);
+
         return view('collections.edit', compact('collection'));
-
-
     }
 
     /**
@@ -62,6 +66,8 @@ class CollectionController extends Controller
      */
     public function update(Request $request, Collection $collection)
     {
+        Gate::authorize('update', $collection);
+
         $validated = $request->validate([
             'name' => 'required',
         ]);
@@ -76,6 +82,8 @@ class CollectionController extends Controller
      */
     public function destroy(Collection $collection)
     {
+        Gate::authorize('delete', $collection);
+
         $collection->delete();
 
         return redirect()->route('collections.index');

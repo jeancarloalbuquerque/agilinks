@@ -15,7 +15,7 @@ class LinkController extends Controller
      */
     public function index()
     {
-        $links = Auth::user()->links;
+        $links = Auth::user()->links()->with(['collection'])->get();
 
         return view('links.index', compact('links'));
     }
