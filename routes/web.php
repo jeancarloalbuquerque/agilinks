@@ -20,6 +20,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('{user}', UserController::class);
+Route::get('/user/{username}', UserController::class);
 
 require __DIR__.'/auth.php';

@@ -12,8 +12,8 @@ class UserController extends Controller
      */
     public function __invoke(Request $request, string $username)
     {
-        $user = User::where('username', $username)->with('links.collection')->first();
-
+        $user = User::where('username', $username)->with(['collections.links', 'linksWithoutCollection'])->first();
+        
         if (is_null($user)) {
             abort(404);
         }

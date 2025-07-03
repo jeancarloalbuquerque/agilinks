@@ -53,6 +53,11 @@ class User extends Authenticatable
         return $this->hasMany(Link::class);
     }
 
+    public function linksWithoutCollection(): HasMany
+    {
+        return $this->links()->whereNull('collection_id');
+    }
+
     public function collections(): HasMany
     {
         return $this->hasMany(Collection::class);

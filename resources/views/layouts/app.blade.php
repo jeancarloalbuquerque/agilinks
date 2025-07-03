@@ -20,7 +20,7 @@
             @include('layouts.navigation')
 
             <!-- Page Content -->
-            <main>
+            <main style="padding-bottom: 5rem">
                 @yield('main')
             </main>
         </div>
